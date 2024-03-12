@@ -4,6 +4,7 @@ import collection.obj.Book;
 import collection.obj.Item;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ListRun {
     public static void main(String[] args) {
@@ -168,6 +169,7 @@ public class ListRun {
         itemList.add(new Item("B", 20.99, new Date(3456789012L)));
         itemList.add(new Item("D", 25.99, new Date(4567890123L)));
 
+        List<Item> test  = itemList.stream().filter(a -> a.getName().equals("A")).collect(Collectors.toList());;
         // sort by name, price, date asc
 //        itemList.sort(new Comparator<Item>() {
 //            @Override
@@ -199,9 +201,7 @@ public class ListRun {
     private static int sumNumbers(Spliterator<Integer> spliterator) {
         //using replace array for local variable in lambda
         int[] sum = {0};
-        spliterator.forEachRemaining(number -> {
-            sum[0] += number;
-        });
+        spliterator.forEachRemaining(number -> sum[0] += number);
         return sum[0];
     }
 
