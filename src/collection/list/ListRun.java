@@ -196,6 +196,13 @@ public class ListRun {
 
         itemList.forEach(System.out::println);
 
+        LinkedList<String> testLinked = new LinkedList<>();
+        testLinked.add("A");
+        testLinked.add("B");
+        System.out.println(testLinked);
+        testLinked.sort(Comparator.reverseOrder());
+        System.out.println(testLinked);
+
     }
 
     private static int sumNumbers(Spliterator<Integer> spliterator) {
